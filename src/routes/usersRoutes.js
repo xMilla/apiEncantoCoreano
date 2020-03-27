@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const usercontroller = require("../controllers/usersController");
+const userController = require("../controllers/usersController");
 
 /* GET home page. */
-router.get('/', usercontroller.index);
+router.get('/', userController.index);
+router.get('/:id', userController.show);
+router.post('/', userController.store);
+router.delete('/:id', userController.destroy);
 
 module.exports = router;
