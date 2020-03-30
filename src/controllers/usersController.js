@@ -5,19 +5,28 @@ module.exports = {
 
     index: (req,res) => {
         usuarios
-        .findAll()
+        .findAll({
+			attributes:{
+				exclude: [ 'password', 'repassword', 'avatar' , 'createdAt', 'updatedAt']
+			}
+		})
         .then(usuarios => {
-            return res.json(usuarios);
+            return res.json({
+				count: usuarios.length,
+				data: usuarios,
+			});
         })
         .catch(error =>{
             return res.json(error);            
         })
-
    
     },
     show: (req, res) => {
 		usuarios
-			.findByPk(req.params.id)
+			.findByPk(req.params.id,{
+				attributes:{
+					exclude: [ 'password', 'repassword']
+				}})
 			.then(result => {
 				if(result) {
 					return res.json(result);

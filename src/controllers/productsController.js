@@ -5,7 +5,11 @@ module.exports = {
 
     index: (req,res) => {
         Productos
-        .findAll()
+        .findAll({
+			attributes:{
+				exclude:['marca','precio','stock','desc','foto','createdAt','updatedAt']
+			}
+		})
         .then(productos => {
             return res.json(productos);
         })
