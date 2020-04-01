@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes ) => {
 		password: DataTypes.STRING,
 		repassword: DataTypes.STRING,
 		categoria: DataTypes.STRING,
-		avatar: DataTypes.STRING,
+        avatar: DataTypes.STRING,
+        detail: DataTypes.STRING,
     };
 
     const usuario = sequelize.define(alias, columns);

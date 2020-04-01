@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes ) => {
             field: 'desc_larga'
         } ,
         foto: DataTypes.STRING,
+        detail: DataTypes.STRING,
     };
 
     const producto = sequelize.define(alias, columns);

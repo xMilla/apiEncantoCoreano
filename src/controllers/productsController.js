@@ -7,10 +7,11 @@ module.exports = {
         Productos
         .findAll({
 			attributes:{
-				exclude:['marca','precio','stock','desc','foto','createdAt','updatedAt']
+				exclude:['marca','precio','stock','desc','createdAt','updatedAt']
 			}
 		})
         .then(productos => {
+			
             return res.json(productos);
         })
         .catch(error =>{
@@ -60,5 +61,8 @@ module.exports = {
 		}
 		
 
-    }
+	},
+	showImg: (req,res) =>{
+		return res.render(req.params.img);
+	}
 }
