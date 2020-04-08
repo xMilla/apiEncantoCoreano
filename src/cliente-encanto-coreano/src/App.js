@@ -10,24 +10,24 @@ import CategoriasComp from './componentes/CategoriasComp';
 
 function App() {
   return (
-    
-    
-      <div className="container-fluid">
+      
+    <div className="container-fluid">
+        <div className=' miBody'>    
+          
+          <div className="header">
+            <h1>Encanto Coreano</h1>
+            <p>React - Appi</p>
+          </div>
+          <br/>
         
-        <div className="header">
-          <h1>Encanto Coreano</h1>
-          <p>React - Appi</p>
-        </div>
-        <br/>
-        <div className= 'row cardsita'>          
-        <br/>
-          <ProductosComp/>
-          <UsuariosComp/>
-          <CategoriasComp/>
-        </div>
+         <div className= 'row cardsita myBody'>          
+            <ProductosComp/>
+            <UsuariosComp/>
+            <CategoriasComp/>
+          </div>
 
-      </div>
-    
+        </div>    
+    </div>
   );
 }
 

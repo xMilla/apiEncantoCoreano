@@ -1,14 +1,17 @@
+
 .header {
     padding: 60px;
     text-align: center;
     background: olivedrab;
-    color: white;
+    color: black;
     font-size: 30px;
   }
 
   .cardsita {
     padding: 60px;
-    margin-left: -12%;
+    margin-right: 0%;
+    margin-left: 0.1%;
     text-align: center;
     justify-content: space-around;
+    background: rgb(165, 224, 117);
   }
