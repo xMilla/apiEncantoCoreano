@@ -6,8 +6,9 @@ class CategoriasComp extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			titulo: 'Categorias',
-			tipos: [],
+            titulo: 'Categorias',
+            productos: [],
+			categorias: [],
 			//cargando: true,
 			//siguientesProductos: '', 
 			//cargandoMas: false,
@@ -25,7 +26,8 @@ class CategoriasComp extends Component {
                 //console.log(data);
 
 				this.setState({
-					categorias: data.data,
+                    categorias: data.tipos,
+                    productos: data.data,
 					count: data.tipos.length, 
 					//scargando: false,
 					//siguientesProductos: data.detail
@@ -58,6 +60,27 @@ class CategoriasComp extends Component {
 		}
 	}*/
 
+    totalByCategorias () {
+        let {productos, categorias} = this.state;
+        let totales = [{}];
+        if(categorias.length !== 0){
+            categorias.map((categoria) => {
+                return( totales.push({
+                         catego: categoria.desc,
+                         totalProd:(productos.filter(prod => prod.tipoId === categoria.id)).length
+                         })
+
+                )
+                 
+             })
+        }
+        
+        console.log('totales array');
+        console.log(totales);
+        
+        
+        return totales;
+    }
 
 	// Render de componente
 	render() {
@@ -69,6 +92,12 @@ class CategoriasComp extends Component {
 				  tituloCard={titulo}
 				  total={count}
 				/>
+                
+				<CardComp
+				  tituloCard={titulo}
+				  totalA={this.totalByCategorias()}
+				/>
+
 			</React.Fragment>
 		);
 	

@@ -13,15 +13,22 @@ let CardComp = (props) => {
 			<Card.Body>
 				<Card.Title>Total de {props.tituloCard} </Card.Title>
 				<Card.Text>
-					 {props.total2 ?
+					 
+					 { props.totalA ?
 					 	<div>
-						 	<h6>Categoria = {props.total}</h6>
-							<h6>Categoria = {props.total2}</h6>
-							<h6>Categoria = {props.total3}</h6>					
+							 {props.totalA.map ((tot,indx) =>{
+								return (
+									 
+									 <h6 key={indx}>Categoria {tot.catego} = {tot.totalProd} </h6>
+								);
+							 }
+							)
+							}	
 					 	</div>
 						:
 						<h6>Total = {props.total}</h6>
-					 }					
+					 }
+
 				</Card.Text>
 			</Card.Body>
 		</Card>
