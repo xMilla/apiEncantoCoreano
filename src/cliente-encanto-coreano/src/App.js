@@ -23,16 +23,17 @@ function App() {
         
          <div className= 'row cardsita myBody'>          
            
+              <ProductosComp/>  
               <UsuariosComp/>            
               <CategoriasComp/>           
-              <ProductosComp/>            
+                    
            
           </div>
 
           <div className= 'row cardsita myBody'>
             <ProductosDetailComp/>
             </div>
-            
+
         </div>    
     
   );
