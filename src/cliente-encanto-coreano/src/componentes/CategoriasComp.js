@@ -73,12 +73,7 @@ class CategoriasComp extends Component {
                 )
                  
              })
-        }
-        
-        console.log('totales array');
-        console.log(totales);
-        
-        
+        }         
         return totales;
     }
 
@@ -93,10 +88,13 @@ class CategoriasComp extends Component {
 				  total={count}
 				/>
                 
-				<CardComp
-				  tituloCard={titulo}
-				  totalA={this.totalByCategorias()}
-				/>
+                <div>
+                    <CardComp
+                    tituloCard={titulo}
+                    totalA={this.totalByCategorias()}
+                    />
+                </div>
+			
 
 			</React.Fragment>
 		);

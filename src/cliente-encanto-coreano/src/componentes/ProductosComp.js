@@ -92,13 +92,6 @@ class ProductosComp extends Component {
 						tituloCard={titulo}
 						total={count}
 					/>
-				
-                    <CardComp
-                        tituloCard='Categorias'                                
-						total={ this.totalByCategorias(1) }
-						total2={ this.totalByCategorias(2) }
-						total3={ this.totalByCategorias(3) }
-                    />
                         
 			</React.Fragment>
 		);

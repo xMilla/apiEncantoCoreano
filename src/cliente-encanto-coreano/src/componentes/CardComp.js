@@ -17,9 +17,8 @@ let CardComp = (props) => {
 					 { props.totalA ?
 					 	<div>
 							 {props.totalA.map ((tot,indx) =>{
-								return (
-									 
-									 <h6 key={indx}>Categoria {tot.catego} = {tot.totalProd} </h6>
+								return (									 
+									<h6 key={indx}>Categoria {tot.catego} = {tot.totalProd} </h6>
 								);
 							 }
 							)
