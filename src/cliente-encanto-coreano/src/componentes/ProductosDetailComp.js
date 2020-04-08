@@ -89,21 +89,21 @@ class ProductosDetailComp extends Component {
 
 					
 						<div className='col-lg-6'> 	
-					<CardDetailComp
-						titulo={titulo}
-						tituloCard='del ultimo Producto Creado'
-						detalles={ this.ultimoProd()
-					}
-					/>
-					</div>
+					        <CardDetailComp
+	    					    titulo={titulo}
+                                tituloCard='del ultimo Producto Creado'
+                                detalles={ this.ultimoProd()
+		        	    		}   
+			        		/>
+					    </div>
 
-					<div className='col-lg-6'> 
-					<CardDetailComp
-						titulo={titulo}
-						tituloCard='de Todos Los Productos'
-						productos={ productos }
-					/>
-					</div>
+                        <div className='col-lg-6'> 
+                            <CardDetailComp
+                                titulo={titulo}
+                                tituloCard='de Todos Los Productos'
+                                productos={ productos }
+                            />
+                        </div>
 					</div>
 				</div>
 				
