@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import CardComp from './CardComp';
+import CardDetailComp from './CardDetailComp';
 
-class CategoriasComp extends Component {
+class ProductosDetailComp extends Component {
 	// Inicializando el Estado de un Componente
 	constructor (props) {
 		super(props);
 		this.state = {
-			titulo: 'Categorias',
-			tipos: [],
+			titulo: 'Productos',
+			productos: [],
 			//cargando: true,
 			//siguientesProductos: '', 
 			//cargandoMas: false,
@@ -22,14 +23,18 @@ class CategoriasComp extends Component {
 			.then(response => response.json())
 			.then(data => {
                 // Setear el estado
-                //console.log(data);
-
+				console.log(data);
+				console.log('pop');
+				
+                
+				
 				this.setState({
-					categorias: data.data,
-					count: data.tipos.length, 
+					productos: data.data,
+					count: data.count, 
 					//scargando: false,
 					//siguientesProductos: data.detail
 				})
+				
 			})
 			.catch(error => console.log(error));
 	}
@@ -57,21 +62,56 @@ class CategoriasComp extends Component {
 				.catch(error => console.log(error));
 		}
 	}*/
+ 
+	ultimoProd(){
+		let { productos } = this.state;
+		console.log('paso por ultimo prds');
+		
+		if(productos.length !== 0){
+			return (productos.pop());
+		}
+		else{
+			return('nada vaico');
+		}
+
+		
+		
+	}
 
 
 	// Render de componente
 	render() {
-		let { titulo, count} = this.state;
+		let { titulo, productos, count} = this.state;
 		return (
 			<React.Fragment>
+				<div className="container-fluid">
+					<div className= 'row' >
 
-				<CardComp
-				  tituloCard={titulo}
-				  total={count}
-				/>
+					
+						<div className='col-lg-6'> 	
+					<CardDetailComp
+						titulo={titulo}
+						tituloCard='del ultimo Producto Creado'
+						detalles={ this.ultimoProd()
+					}
+					/>
+					</div>
+
+					<div className='col-lg-6'> 
+					<CardDetailComp
+						titulo={titulo}
+						tituloCard='de Todos Los Productos'
+						productos={ productos }
+					/>
+					</div>
+					</div>
+				</div>
+				
+
+				
 			</React.Fragment>
 		);
 	
 	}
 }
-export default CategoriasComp;
+export default ProductosDetailComp;

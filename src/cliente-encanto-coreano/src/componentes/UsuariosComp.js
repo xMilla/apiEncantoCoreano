@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import CardComp from './CardComp';
 
 class UsuariosComp extends Component {
