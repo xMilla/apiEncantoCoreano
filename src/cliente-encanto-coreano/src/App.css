@@ -8,5 +8,7 @@
 
   .cardsita {
     padding: 60px;
+    margin-left: -12%;
     text-align: center;
+    justify-content: space-around;
   }

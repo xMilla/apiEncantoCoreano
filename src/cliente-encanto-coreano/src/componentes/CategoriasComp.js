@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import CardComp from './CardComp';
 
-class ProductosComp extends Component {
+class CategoriasComp extends Component {
 	// Inicializando el Estado de un Componente
 	constructor (props) {
 		super(props);
 		this.state = {
-			titulo: 'Productos',
-			productos: [],
+			titulo: 'Categorias',
+			tipos: [],
 			//cargando: true,
 			//siguientesProductos: '', 
 			//cargandoMas: false,
@@ -23,11 +23,11 @@ class ProductosComp extends Component {
 			.then(response => response.json())
 			.then(data => {
                 // Setear el estado
-                console.log(data);
-                
+                //console.log(data);
+
 				this.setState({
-					productos: data.data,
-					count: data.count, 
+					categorias: data.data,
+					count: data.tipos.length, 
 					//scargando: false,
 					//siguientesProductos: data.detail
 				})
@@ -70,10 +70,9 @@ class ProductosComp extends Component {
 				  tituloCard={titulo}
 				  total={count}
 				/>
-				
 			</React.Fragment>
 		);
 	
 	}
 }
-export default ProductosComp;
+export default CategoriasComp;

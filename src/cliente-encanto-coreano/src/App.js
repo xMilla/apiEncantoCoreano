@@ -5,7 +5,8 @@ import './App.css'
 //components
 //import Button from 'react-bootstrap/Button';
 import ProductosComp from './componentes/ProductosComp';
-
+import UsuariosComp from './componentes/UsuariosComp';
+import CategoriasComp from './componentes/CategoriasComp';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <div className= 'row cardsita'>          
         <br/>
           <ProductosComp/>
+          <UsuariosComp/>
+          <CategoriasComp/>
         </div>
 
       </div>

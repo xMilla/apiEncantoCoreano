@@ -1,19 +1,28 @@
 const db = require("../database/models");
 const Productos = db.productos;
+const Tipos = db.tipos;
 
 module.exports = {
 
     index: (req,res) => {
         Productos
-        .findAll({
+        .findAll(
+			{
+		    include: ['tipo'],
 			attributes:{
 				exclude:['marca','precio','stock','desc','createdAt','updatedAt']
 			}
 		})
         .then(productos => {
-			return res.status(200).json({
-				count: productos.length,
-				data: productos         
+			Tipos
+			.findAll()
+			.then( tipos => {
+				return res.status(200).json({
+					count: productos.length,
+					tipos: tipos,
+					data: productos,
+				})
+			
 			})   
         })
         .catch(error =>{

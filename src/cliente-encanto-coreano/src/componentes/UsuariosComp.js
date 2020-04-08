@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import CardComp from './CardComp';
 
-class ProductosComp extends Component {
+class UsuariosComp extends Component {
 	// Inicializando el Estado de un Componente
 	constructor (props) {
 		super(props);
 		this.state = {
-			titulo: 'Productos',
+			titulo: 'Usuarios',
 			productos: [],
 			//cargando: true,
 			//siguientesProductos: '', 
@@ -19,14 +19,14 @@ class ProductosComp extends Component {
 	componentDidMount () {
 		console.log('Pasó por el componentDidMount()');
 		
-		fetch('http://localhost:3000/products/?format=json')
+		fetch('http://localhost:3000/users/?format=json')
 			.then(response => response.json())
 			.then(data => {
                 // Setear el estado
                 console.log(data);
                 
 				this.setState({
-					productos: data.data,
+					usuarios: data.data,
 					count: data.count, 
 					//scargando: false,
 					//siguientesProductos: data.detail
@@ -62,7 +62,7 @@ class ProductosComp extends Component {
 
 	// Render de componente
 	render() {
-		let { titulo, productos, count} = this.state;
+		let { titulo, usuarios, count} = this.state;
 		return (
 			<React.Fragment>
 
@@ -70,10 +70,10 @@ class ProductosComp extends Component {
 				  tituloCard={titulo}
 				  total={count}
 				/>
-				
+			
 			</React.Fragment>
 		);
 	
 	}
 }
-export default ProductosComp;
+export default UsuariosComp;
