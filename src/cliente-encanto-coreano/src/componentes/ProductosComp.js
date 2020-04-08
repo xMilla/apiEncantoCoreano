@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardComp from './CardComp';
-import CardDetailComp from './CardDetailComp';
+
 
 class ProductosComp extends Component {
 	// Inicializando el Estado de un Componente
@@ -73,23 +73,33 @@ class ProductosComp extends Component {
 		else{
 			return('nada vaico');
 		}
-
-		
-		
 	}
 
+	
+    totalByCategorias (tipoId) {
+        let {productos} = this.state;
+        let totales = productos.filter(prod => prod.tipoId === tipoId)
+        return totales.length;
+    } 
 
 	// Render de componente
 	render() {
-		let { titulo, productos, count} = this.state;
+		let { titulo, count} = this.state;
 		return (
 			<React.Fragment>
-												
+
 					<CardComp
 						tituloCard={titulo}
 						total={count}
 					/>
 				
+                    <CardComp
+                        tituloCard='Categorias'                                
+						total={ this.totalByCategorias(1) }
+						total2={ this.totalByCategorias(2) }
+						total3={ this.totalByCategorias(3) }
+                    />
+                        
 			</React.Fragment>
 		);
 	

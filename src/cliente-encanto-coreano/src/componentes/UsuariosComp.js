@@ -61,7 +61,7 @@ class UsuariosComp extends Component {
 
 	// Render de componente
 	render() {
-		let { titulo, usuarios, count} = this.state;
+		let { titulo,count} = this.state;
 		return (
 			<React.Fragment>
 

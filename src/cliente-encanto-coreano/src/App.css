@@ -2,8 +2,8 @@
 .header {
     padding: 60px;
     text-align: center;
-    background: olivedrab;
-    color: black;
+    background: goldenrod;
+    color: brown;
     font-size: 30px;
   }
 
@@ -13,7 +13,7 @@
     margin-left: 0.1%;
     text-align: center;
     justify-content: space-around;
-    background: rgb(165, 224, 117);
+    background: burlywood;
   }
 
   .rowcito{

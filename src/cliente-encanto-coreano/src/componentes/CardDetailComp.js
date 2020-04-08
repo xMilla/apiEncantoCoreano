@@ -5,7 +5,7 @@ let CardDetailComp = (props) => {
 	console.log(props);
 	return (
 		
-        <Card border="success" style={{ width: '18rem' }}>
+        <Card border="danger" style={{ width: '18rem' }}>
             <Card.Header>{props.titulo}</Card.Header>
             <Card.Body>
             <Card.Title>Detalle {props.tituloCard}</Card.Title>
@@ -23,7 +23,7 @@ let CardDetailComp = (props) => {
                         {props.productos.map((unProducto, indx) => {
                             return(
                                 <li key={indx}>
-                                <p scope="row">{unProducto.id}</p>
+                                <p>{unProducto.id}</p>
                                 <p>{unProducto.nombre}</p>
                                 <p>{unProducto.descLarga}</p>
                                 <p>

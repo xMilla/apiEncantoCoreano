@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CardComp from './CardComp';
 import CardDetailComp from './CardDetailComp';
 
 class ProductosDetailComp extends Component {
@@ -72,16 +71,22 @@ class ProductosDetailComp extends Component {
 		}
 		else{
 			return('nada vaico');
-		}
+        }
+    }
 
+    totalByCategorias (tipoId) {
+        let {productos} = this.state;
+        let totales = productos.filter(prod => prod.tipoId === tipoId)
+        return totales.length;
+    }    
 		
 		
-	}
+	
 
 
 	// Render de componente
 	render() {
-		let { titulo, productos, count} = this.state;
+		let { titulo, productos} = this.state;
 		return (
 			<React.Fragment>
 				<div className="container-fluid">
@@ -92,10 +97,10 @@ class ProductosDetailComp extends Component {
 					        <CardDetailComp
 	    					    titulo={titulo}
                                 tituloCard='del ultimo Producto Creado'
-                                detalles={ this.ultimoProd()
-		        	    		}   
+                                detalles={ this.ultimoProd()}   
 			        		/>
 					    </div>
+                        
 
                         <div className='col-lg-6'> 
                             <CardDetailComp
