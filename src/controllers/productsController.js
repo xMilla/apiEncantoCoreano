@@ -11,8 +11,10 @@ module.exports = {
 			}
 		})
         .then(productos => {
-			
-            return res.json(productos);
+			return res.status(200).json({
+				count: productos.length,
+				data: productos         
+			})   
         })
         .catch(error =>{
             return res.json(error);            

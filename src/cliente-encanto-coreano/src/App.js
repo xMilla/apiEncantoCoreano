@@ -1,14 +1,29 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 //components
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
+import ProductosComp from './componentes/ProductosComp';
+
 
 function App() {
   return (
-    <Button>
-      <h1>Mi react de encanto coreano</h1>
-    </Button>
+    
+    
+      <div className="container-fluid">
+        
+        <div className="header">
+          <h1>Encanto Coreano</h1>
+          <p>React - Appi</p>
+        </div>
+        <br/>
+        <div className= 'row cardsita'>          
+        <br/>
+          <ProductosComp/>
+        </div>
+
+      </div>
     
   );
 }
