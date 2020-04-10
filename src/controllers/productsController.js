@@ -49,11 +49,19 @@ module.exports = {
 				msg: 'no fue posible guardar'
 			});
 		} else {
+			
 			Productos
+				.findAll()
+				.then( productos =>{
+					ultimo = productos.pop();
+					req.body.detail = 'http://localhost:3000/products/' + (ultimo.id+1);
+					console.log(req.body.detail);				
+			Productos	
 				.create(req.body)
 				.then(result => {
 					return res.json(result);
 				}).catch(error => res.json(error));
+			})		
 		}
 	},
 	destroy: (req, res) => {
