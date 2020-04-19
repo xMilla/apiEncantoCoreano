@@ -44,7 +44,7 @@ module.exports = {
 			}).catch(error => res.json(error));
 	},
 	store: (req, res) => {
-		if (req.body.token != '123') {
+		if (req.query.token != '123') {
 			return res.status(505).json({
 				msg: 'no fue posible guardar'
 			});
@@ -65,7 +65,7 @@ module.exports = {
 		}
 	},
 	destroy: (req, res) => {
-		if (req.body.token != '123') {
+		if (req.query.token != '123') {
 			return res.status(505).json({
 				msg: 'no fue posible borrar'
 			});

@@ -1,10 +1,10 @@
 const db = require("../database/models");
-const usuarios = db.usuarios;
+const Usuarios = db.usuarios;
 
 module.exports = {
 
     index: (req,res) => {
-        usuarios
+        Usuarios
         .findAll({
 			attributes:{
 				exclude: [ 'password', 'repassword', 'avatar' , 'createdAt', 'updatedAt']
@@ -22,7 +22,7 @@ module.exports = {
    
     },
     show: (req, res) => {
-		usuarios
+		Usuarios
 			.findByPk(req.params.id,{
 				attributes:{
 					exclude: [ 'password', 'repassword']
@@ -38,25 +38,31 @@ module.exports = {
 			}).catch(error => res.json(error));
 	},
 	store: (req, res) => {
-		if (req.body.token != '123') {
+		if (req.query.token != '123') {
 			return res.status(505).json({
 				msg: 'Los datos no pudieron guardarse'
 			});
 		} else {
-			usuarios
+			Usuarios
+				.findAll()
+				.then( usuarios =>{
+					ultimo = usuarios.pop();
+					req.body.detail = 'http://localhost:3000/users/' + (ultimo.id+1);
+					console.log(req.body.detail);	
+			Usuarios
 				.create(req.body)
 				.then(result => {
-					return res.json(result);
-				}).catch(error => res.json(error));
-		}
+						return res.json(result);
+				}).catch(error => res.json(error));	})		
+		 }
 	},
 	destroy: (req, res) => {
-		if (req.body.token != '123') {
+		if (req.query.token != '123') {
 			return res.status(505).json({
 				msg: 'Los datos no pudieron borrarse'
 			});
 		} else {
-			usuarios
+			Usuarios
 				.destroy({
 					where: { id: req.params.id }
 				})
