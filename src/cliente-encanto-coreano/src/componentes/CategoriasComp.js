@@ -90,7 +90,7 @@ class CategoriasComp extends Component {
                 
                 <div>
                     <CardComp
-                    tituloCard={titulo}
+                    tituloCard= 'Total de Prsoductos por Categoria'
                     totalA={this.totalByCategorias()}
                     />
                 </div>

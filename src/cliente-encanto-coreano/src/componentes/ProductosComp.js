@@ -23,8 +23,8 @@ class ProductosComp extends Component {
 			.then(response => response.json())
 			.then(data => {
                 // Setear el estado
-				console.log(data);
-				console.log('pop');
+				//console.log(data);
+				//console.log('pop');
 				
                 
 				
